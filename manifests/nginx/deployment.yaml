@@ -13,7 +13,12 @@ spec:
         app: nginx
     spec:
       containers:
-      - name: nginx
-        image: nginx:latest
-        ports:
-        - containerPort: 80
+        - name: nginx
+          image: nginx
+          volumeMounts:
+            - name: static-html
+              mountPath: /usr/share/nginx/html
+      volumes:
+        - name: static-html
+          configMap:
+            name: static-html
