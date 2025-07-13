@@ -50,7 +50,20 @@ Domain: https://www.devopskotresha.live
 # 6. Useful Links
     GitHub: https://github.com/KotreshaSB/Kotresha-DevOps-Assignment
 
-Website: https://www.devopskotresha.live
+#7. ✅ Final Checks
+
+    Verify all AWS-EKS deployments 
+
+    ArgoCD UI is accessible via LoadBalancer
+
+    ArgoCD shows NGINX app synced
+
+    Ingress exposes NGINX to www.devopskotresha.live
+
+    DNS resolves properly
+
+    Access the static webpage using the DNS name 
+
 
 # Summary
 
