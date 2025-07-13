@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!--
 <html>
 <head>
   <title>Appscrip Static Site</title>
@@ -8,3 +8,128 @@
   <p>This is a static NGINX website for the Appscrip assignment.</p>
 </body>
 </html>
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Appscrip</title>
+  <style>
+    /* Reset */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html, body {
+      height: 100%;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      overflow: hidden;
+    }
+
+    body {
+      background: linear-gradient(120deg, #1e3c72, #2a5298);
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+    }
+
+    .container {
+      text-align: center;
+      z-index: 1;
+    }
+
+    h1 {
+      font-size: 4rem;
+      font-weight: bold;
+      animation: fadeIn 2s ease-in-out;
+    }
+
+    p {
+      font-size: 1.5rem;
+      margin-top: 1rem;
+      animation: fadeIn 3s ease-in-out;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(-20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Animated background circles */
+    .background {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      top: 0;
+      left: 0;
+      z-index: 0;
+    }
+
+    .circle {
+      position: absolute;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.1);
+      animation: float 20s infinite ease-in-out;
+    }
+
+    .circle:nth-child(1) {
+      width: 100px;
+      height: 100px;
+      top: 20%;
+      left: 10%;
+      animation-duration: 25s;
+    }
+
+    .circle:nth-child(2) {
+      width: 150px;
+      height: 150px;
+      top: 50%;
+      left: 80%;
+      animation-duration: 30s;
+    }
+
+    .circle:nth-child(3) {
+      width: 80px;
+      height: 80px;
+      top: 70%;
+      left: 30%;
+      animation-duration: 35s;
+    }
+
+    .circle:nth-child(4) {
+      width: 120px;
+      height: 120px;
+      top: 40%;
+      left: 50%;
+      animation-duration: 28s;
+    }
+
+    @keyframes float {
+      0% { transform: translateY(0) translateX(0); }
+      50% { transform: translateY(-50px) translateX(50px); }
+      100% { transform: translateY(0) translateX(0); }
+    }
+  </style>
+</head>
+<body>
+  <div class="background">
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+  </div>
+
+  <div class="container">
+    <h1>Welcome to Appscrip</h1>
+    <p>We build scalable digital products for global startups.</p>
+  </div>
+</body>
+</html>
+
