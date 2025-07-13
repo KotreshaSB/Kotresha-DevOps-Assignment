@@ -43,7 +43,7 @@ resource "aws_route_table" "kotresha_route_table" {
   }
 }
 
-resource "aws_route_table_association" "kotresha_association" {
+resource "aws_route_table_association" "a" {
   count          = 2
   subnet_id      = aws_subnet.kotresha_subnet[count.index].id
   route_table_id = aws_route_table.kotresha_route_table.id
@@ -95,16 +95,6 @@ resource "aws_eks_cluster" "kotresha" {
     security_group_ids = [aws_security_group.kotresha_cluster_sg.id]
   }
 }
-
-
-resource "aws_eks_addon" "ebs_csi_driver" {
-  cluster_name    = aws_eks_cluster.kotresha.name
-  addon_name      = "aws-ebs-csi-driver"
-  
-  resolve_conflicts_on_create = "OVERWRITE"
-  resolve_conflicts_on_update = "OVERWRITE"
-}
-
 
 resource "aws_eks_node_group" "kotresha" {
   cluster_name    = aws_eks_cluster.kotresha.name
@@ -183,9 +173,3 @@ resource "aws_iam_role_policy_attachment" "kotresha_node_group_registry_policy" 
   role       = aws_iam_role.kotresha_node_group_role.name
   policy_arn = "arn:aws:iam::aws:policy/AmazonEC2ContainerRegistryReadOnly"
 }
-
-resource "aws_iam_role_policy_attachment" "kotresha_node_group_ebs_policy" {
-  role       = aws_iam_role.kotresha_node_group_role.name
-  policy_arn = "arn:aws:iam::aws:policy/service-role/AmazonEBSCSIDriverPolicy"
-}
-
