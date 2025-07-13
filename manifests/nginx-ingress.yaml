@@ -7,7 +7,7 @@ metadata:
 spec:
   ingressClassName: nginx
   rules:
-  - host: devopskotresha.live
+  - host: www.devopskotresha.live
     http:
       paths:
       - path: /
